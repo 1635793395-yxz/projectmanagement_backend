@@ -1,5 +1,5 @@
 server:
-  port: 8080 # 后端运行端口
+  server.port=${PORT:8080}
   tomcat:
     max-swallow-size: 100MB
 
@@ -9,9 +9,9 @@ spring:
 
   datasource:
     # 这里的 project_management_db 要和你刚才在 MySQL 里建的库名一致
-    url: jdbc:mysql://localhost:3306/project_management_db?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
-    username: root          # 你的 MySQL 用户名，通常是 root
-    password: YXZ08020917Yxz # MySQL密码
+    spring.datasource.url=${DATABASE_URL:jdbc:mysql://localhost:3306/project_management_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true}
+    spring.datasource.username=${DATABASE_USERNAME:root}
+    spring.datasource.password=${DATABASE_PASSWORD:YXZ08020917Yxz}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
