@@ -1,0 +1,29 @@
+server:
+  port: 8080 # 后端运行端口
+  tomcat:
+    max-swallow-size: 100MB
+
+spring:
+  application:
+    name: project-management-server
+
+  datasource:
+    # 这里的 project_management_db 要和你刚才在 MySQL 里建的库名一致
+    url: jdbc:mysql://localhost:3306/project_management_db?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: root          # 你的 MySQL 用户名，通常是 root
+    password: YXZ08020917Yxz # MySQL密码
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update # 开发阶段：自动更新表结构
+    show-sql: true     # 调试阶段：在控制台打印 SQL 语句，方便你看
+    properties:
+      hibernate:
+        format_sql: true # 格式化 SQL 让它更好看
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB      # 单个文件最大大小
+      max-request-size: 50MB   # 单次请求总大小
