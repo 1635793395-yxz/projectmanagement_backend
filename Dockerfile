@@ -6,7 +6,7 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 # 第二阶段：运行 (Run)
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jdk
 WORKDIR /app
 # 注意：这里假设你的 jar 包名字包含 snapshot，如果 pom.xml 改过名，这里要对应修改
 # 下面这行命令会自动找到 target 目录下生成的 jar 包并重命名为 app.jar
@@ -16,4 +16,5 @@ COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
 
 # 启动命令
+
 ENTRYPOINT ["java","-jar","app.jar"]
