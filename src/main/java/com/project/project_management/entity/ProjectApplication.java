@@ -13,35 +13,35 @@ public class ProjectApplication {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "applicant_id")
+    @Column(name = "applicant_id", columnDefinition = "TEXT")
     private Long applicantId;   // 申请人ID
 
-    @Column(name = "project_name")
+    @Column(name = "project_name", columnDefinition = "TEXT")
     private String projectName; // 项目名称
 
     private String reason;      // 申请理由（也作为简介备用）
     private String status;      // PENDING, APPROVED, REJECTED
 
-    @Column(name = "project_code")
+    @Column(name = "project_code", columnDefinition = "TEXT")
     private String projectCode;
 
     private String category;
     private String intro;
     private String details;
 
-    @Column(name = "internal_resources")
+    @Column(name = "internal_resources", columnDefinition = "TEXT")
     private String internalResources;
 
-    @Column(name = "manager_name")
+    @Column(name = "manager_name", columnDefinition = "TEXT")
     private String managerName; // 申请人填写的负责人名字
 
-    @Column(name = "created_at")
+    @Column(name = "created_at", columnDefinition = "TEXT")
     private LocalDateTime createdAt;
 
-    @Column(name = "reject_reason")
+    @Column(name = "reject_reason", columnDefinition = "TEXT")
     private String rejectReason;
 
-    @Column(name = "material_url")
+    @Column(name = "material_url", columnDefinition = "TEXT")
     private String materialUrl;
 
     public Long getId() {
