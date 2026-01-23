@@ -12,14 +12,14 @@ public class ProjectInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "project_code")
+    @Column(name = "project_code", columnDefinition = "TEXT")
     private String projectCode; // 项目编号
 
     private String name;        // 项目名称
     private String category;    // 类别
     private String status;      // 状态: IN_PROGRESS(进行中), COMPLETED(已结项)等
 
-    @Column(name = "manager_id")
+    @Column(name = "manager_id", columnDefinition = "TEXT")
     private Long managerId;     // 负责人ID (为了简单，这里直接存ID)
 
     private Integer progress;   // 进度 0-100
@@ -27,13 +27,13 @@ public class ProjectInfo {
 
     // ⚠️ 注意：文档说下面这俩字段对普通用户不可见，我们在 Controller 里会处理它
     private String details;           // 内部详情
-    @Column(name = "internal_resources")
+    @Column(name = "internal_resources", columnDefinition = "TEXT")
     private String internalResources; // 内部资源
 
-    @Column(name = "created_at")
+    @Column(name = "created_at", columnDefinition = "TEXT")
     private LocalDateTime createdAt;
 
-    @Column(name = "updated_at")
+    @Column(name = "updated_at", columnDefinition = "TEXT")
     private LocalDateTime updatedAt;
 
     @Transient // 这个字段只在代码里用，不存入数据库表
