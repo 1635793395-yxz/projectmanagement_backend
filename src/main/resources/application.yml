@@ -9,10 +9,12 @@ spring:
 
   datasource:
     # 这里的 project_management_db 要和你刚才在 MySQL 里建的库名一致
-    spring.datasource.url=${DATABASE_URL:jdbc:mysql://localhost:3306/project_management_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true}
-    spring.datasource.username=${DATABASE_USERNAME:root}
+    spring.datasource.url=${DATABASE_URL:jdbc:postgresql://localhost:5432/project_db}
+    spring.datasource.username=${DATABASE_USERNAME:postgres}
     spring.datasource.password=${DATABASE_PASSWORD:YXZ08020917Yxz}
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    spring.datasource.driver-class-name=org.postgresql.Driver
+    spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+    spring.jpa.hibernate.ddl-auto=update
 
   jpa:
     hibernate:
